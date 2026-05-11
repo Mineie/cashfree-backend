@@ -86,7 +86,7 @@ app.post("/api/payment", async (req, res) => {
 
 customer_details: {
   customer_id: `cust_${phone.replace(/\D/g, "")}`,
-  customer_name: name,
+  customer_name: "Customer",
   customer_email: "test@example.com",
   customer_phone: phone,
 },
@@ -94,7 +94,7 @@ customer_details: {
     order_meta: {
       return_url: `${
         process.env.RETURN_URL ||
-        "chatterjee-hotel.netlify.app"
+        "https://chatterjee-hotel.netlify.app"
       }?order_id={order_id}`,
     },
   };
