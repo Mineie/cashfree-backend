@@ -20,11 +20,7 @@ async function sendTelegramMessage(message) {
     });
   } catch (error) {
   console.log("FULL BACKEND ERROR:", error);
-
-  res.status(500).json({
-    success: false,
-    error: error.message,
-  });
+  }
 }
 
 const app = express();
