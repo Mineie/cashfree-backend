@@ -89,7 +89,7 @@ app.post("/api/payment", async (req, res) => {
   };
 
   const cashfreeUrl =
-    "https://sandbox.cashfree.com/pg/orders";
+    "https://api.cashfree.com/pg/orders";
 
   try {
     const response = await fetch(cashfreeUrl, {
