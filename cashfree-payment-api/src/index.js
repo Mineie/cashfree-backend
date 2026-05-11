@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import crypto from "crypto";
 
+
 async function sendTelegramMessage(message) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -72,13 +73,15 @@ app.post("/api/payment", async (req, res) => {
 
   const orderPayload = {
     order_id: orderId,
-    order_amount: amount,
+    order_amount: Number(amount),
     order_currency: "INR",
 
-    customer_details: {
-      customer_id: `cust_${phone.replace(/\D/g, "")}`,
-      customer_phone: phone,
-    },
+customer_details: {
+  customer_id: `cust_${phone.replace(/\D/g, "")}`,
+  customer_name: name,
+  customer_email: "test@example.com",
+  customer_phone: phone,
+},
 
     order_meta: {
       return_url: `${
