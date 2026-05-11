@@ -24,6 +24,13 @@ async function sendTelegramMessage(message) {
 }
 
 const app = express();
+
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST"],
+}));
+
+app.use(express.json());
 const PORT = process.env.PORT || 8080;
 
 // Middleware
