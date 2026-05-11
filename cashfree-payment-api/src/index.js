@@ -87,7 +87,7 @@ customer_details: {
   customer_id: `cust_${phone.replace(/\D/g, "")}`,
   customer_name: req.body.name || "Customer",
   customer_email: "test@example.com",
-  customer_phone: phone,
+  customer_phone: String(phone).replace(/\D/g, "").slice(-10),
 },
 
     order_meta: {
