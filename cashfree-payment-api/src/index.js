@@ -83,7 +83,7 @@ app.post("/api/payment", async (req, res) => {
     order_meta: {
       return_url: `${
         process.env.RETURN_URL ||
-        "https://yourapp.com/payment/status"
+        "chatterjee-hotel.netlify.app"
       }?order_id={order_id}`,
     },
   };
