@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ─── Health Check ─────────────────────────────────────────────────────────────
-app.get("/api/healthz", (_req: Request, res: Response) => {
+app.get("/api/healthz", (_req, res) => {
   res.json({ status: "ok" });
 });
 
@@ -30,7 +30,7 @@ interface CashfreeOrderResponse {
   type?: string;
 }
 
-app.post("/api/payment", async (req: Request, res: Response) => {
+app.post("/api/payment", async (_req, res) => {
   const { amount, phone } = req.body as PaymentRequestBody;
 
   // Validate input
