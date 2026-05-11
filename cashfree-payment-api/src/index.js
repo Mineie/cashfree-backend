@@ -2,6 +2,26 @@ import express from "express";
 import cors from "cors";
 import crypto from "crypto";
 
+async function sendTelegramMessage(message: string) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  try {
+    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: message,
+      }),
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -97,6 +117,15 @@ app.post("/api/payment", async (req, res) => {
       });
     }
 
+    await sendTelegramMessage(`
+✅ NEW PAYMENT
+
+👤 Name: ${req.body.name}
+📞 Phone: ${phone}
+💰 Amount: ₹${amount}
+
+🆔 Order ID: ${data.order_id}
+`);
     return res.status(200).json({
       success: true,
       order_id: data.order_id,
