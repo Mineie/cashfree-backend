@@ -116,7 +116,8 @@ customer_details: {
     });
 
     const data = await response.json();
-    console.log("CASHFREE RESPONSE:", data);
+   console.log("STATUS:", response.status);
+   console.log("CASHFREE RESPONSE:", data);
 
     if (!response.ok) {
       console.error("Cashfree API error", data);
