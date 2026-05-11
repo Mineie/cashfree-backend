@@ -90,12 +90,10 @@ customer_details: {
   customer_phone: String(phone).replace(/\D/g, "").slice(-10),
 },
 
-    order_meta: {
-      return_url: `${
-        process.env.RETURN_URL ||
-        "https://chatterjee-hotel.netlify.app"
-      }?order_id={order_id}`,
-    },
+order_meta: {
+  return_url:
+    "https://chatterjee-hotel.netlify.app/payment-success?order_id={order_id}",
+},
   };
 
   const cashfreeUrl =
