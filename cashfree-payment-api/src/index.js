@@ -121,6 +121,7 @@ app.post("/api/payment", async (req, res) => {
 ✅ NEW PAYMENT
 
 👤 Name: ${req.body.name}
+📍 Address: ${req.body.address}
 📞 Phone: ${phone}
 💰 Amount: ₹${amount}
 
