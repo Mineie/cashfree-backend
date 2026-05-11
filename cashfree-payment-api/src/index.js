@@ -86,7 +86,7 @@ app.post("/api/payment", async (req, res) => {
 
 customer_details: {
   customer_id: `cust_${phone.replace(/\D/g, "")}`,
-  customer_name: "Customer",
+  customer_name: req.body.name || "Customer",
   customer_email: "test@example.com",
   customer_phone: phone,
 },
