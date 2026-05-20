@@ -127,12 +127,19 @@ order_meta: {
       });
     }
 
+ const orderItems = req.body.cart
+  ?.map((item) => `🍴 ${item[0]} - ₹${item[1]}`)
+  .join("\n");
+    
+        
     await sendTelegramMessage(`
 ✅ NEW PAYMENT
 
 👤 Name: ${req.body.name}
 📍 Address: ${req.body.address}
 📞 Phone: ${phone}
+🛒 ORDER:
+${orderItems}
 💰 Amount: ₹${amount}
 
 🆔 Order ID: ${data.order_id}
