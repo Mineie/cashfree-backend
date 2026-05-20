@@ -133,7 +133,7 @@ order_meta: {
     
         
     await sendTelegramMessage(`
-✅ NEW PAYMENT
+✅ NEW REQUEST
 
 👤 Name: ${req.body.name}
 📍 Address: ${req.body.address}
